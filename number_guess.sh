@@ -55,3 +55,4 @@ $PSQL "INSERT INTO score(user_id, guess) VALUES($USER_ID, $NUMBER_OF_GUESSES)"
 
 #final message
 echo "You guessed it in $NUMBER_OF_GUESSES tries. The secret number was $SECRET_NUMBER. Nice job!"
+exit
