@@ -17,3 +17,11 @@ if [[ -z $USERNAME_EXIST ]]
   IFS='|' read USER PLAY GUESS <<< "$VIEW_USER"
   echo "Welcome back, $USER! You have played $PLAY games, and your best game took $GUESS guesses."
 fi
+
+#number guessing game
+SECRET_NUMBER=$(( RANDOM % 1000 + 1 ))
+NUMBER_OF_GUESSES=0
+echo "Guess the secret number between 1 and 1000:"
+while true 
+do
+  read GUESS
