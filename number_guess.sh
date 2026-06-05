@@ -51,7 +51,7 @@ done
 #save game username
 USER_ID=$($PSQL "SELECT user_id FROM users WHERE username='$USERNAME'")
 #save game result
-$PSQL "INSERT INTO score(user_id, guess) VALUES($USER_ID, $NUMBER_OF_GUESSES)"
+SAVE_GAME=($PSQL "INSERT INTO score(user_id, guess) VALUES($USER_ID, $NUMBER_OF_GUESSES)")
 
 #final message
 echo "You guessed it in $NUMBER_OF_GUESSES tries. The secret number was $SECRET_NUMBER. Nice job!"
