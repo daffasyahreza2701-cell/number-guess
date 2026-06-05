@@ -26,19 +26,26 @@ while true
 do
   read GUESS
 
+#validating input
+if ! [[ $GUESS =~ ^[0-9]+$ ]]
+  then
+  echo "That is not an integer, guess again:"
+  continue
+fi
+
 #counting guesses
   ((NUMBER_OF_GUESSES++))
 
 #comparison to user input
-  if (( GUESS < SECRET_NUMBER ))
+if (( GUESS < SECRET_NUMBER ))
   then
-    echo "It's higher than that, guess again:"
+  echo "It's higher than that, guess again:"
   elif (( GUESS > SECRET_NUMBER ))
   then
-    echo "It's lower than that, guess again:"
+  echo "It's lower than that, guess again:"
   else
     break
-  fi
+fi
 done
 
 #save game username
