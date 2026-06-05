@@ -40,3 +40,8 @@ do
     break
   fi
 done
+
+#save game username
+USER_ID=$($PSQL "SELECT user_id FROM users WHERE username='$USERNAME'")
+#save game result
+$PSQL "INSERT INTO score(user_id, guess) VALUES($USER_ID, $NUMBER_OF_GUESSES)"
