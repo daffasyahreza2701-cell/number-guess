@@ -28,3 +28,15 @@ do
 
 #counting guesses
   ((NUMBER_OF_GUESSES++))
+
+#comparison to user input
+  if (( GUESS < SECRET_NUMBER ))
+  then
+    echo "It's higher than that, guess again:"
+  elif (( GUESS > SECRET_NUMBER ))
+  then
+    echo "It's lower than that, guess again:"
+  else
+    break
+  fi
+done
