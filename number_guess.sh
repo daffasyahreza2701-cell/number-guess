@@ -25,3 +25,6 @@ echo "Guess the secret number between 1 and 1000:"
 while true 
 do
   read GUESS
+
+#counting guesses
+  ((NUMBER_OF_GUESSES++))
