@@ -44,16 +44,16 @@ SET default_tablespace = '';
 SET default_table_access_method = heap;
 
 --
--- Name: score; Type: TABLE; Schema: public; Owner: freecodecamp
+-- Name: games; Type: TABLE; Schema: public; Owner: freecodecamp
 --
 
-CREATE TABLE public.score (
+CREATE TABLE public.games (
     user_id integer NOT NULL,
     guess integer
 );
 
 
-ALTER TABLE public.score OWNER TO freecodecamp;
+ALTER TABLE public.games OWNER TO freecodecamp;
 
 --
 -- Name: users; Type: TABLE; Schema: public; Owner: freecodecamp
@@ -97,46 +97,53 @@ ALTER TABLE ONLY public.users ALTER COLUMN user_id SET DEFAULT nextval('public.u
 
 
 --
--- Data for Name: score; Type: TABLE DATA; Schema: public; Owner: freecodecamp
+-- Data for Name: games; Type: TABLE DATA; Schema: public; Owner: freecodecamp
 --
 
-INSERT INTO public.score VALUES (9, 892);
-INSERT INTO public.score VALUES (9, 582);
-INSERT INTO public.score VALUES (10, 88);
-INSERT INTO public.score VALUES (10, 518);
-INSERT INTO public.score VALUES (9, 576);
-INSERT INTO public.score VALUES (9, 495);
-INSERT INTO public.score VALUES (9, 701);
-INSERT INTO public.score VALUES (11, 311);
-INSERT INTO public.score VALUES (11, 869);
-INSERT INTO public.score VALUES (12, 922);
-INSERT INTO public.score VALUES (12, 381);
-INSERT INTO public.score VALUES (11, 408);
-INSERT INTO public.score VALUES (11, 378);
-INSERT INTO public.score VALUES (11, 29);
-INSERT INTO public.score VALUES (13, 260);
-INSERT INTO public.score VALUES (13, 752);
-INSERT INTO public.score VALUES (14, 296);
-INSERT INTO public.score VALUES (14, 970);
-INSERT INTO public.score VALUES (13, 767);
-INSERT INTO public.score VALUES (13, 817);
-INSERT INTO public.score VALUES (13, 699);
-INSERT INTO public.score VALUES (15, 883);
-INSERT INTO public.score VALUES (15, 467);
-INSERT INTO public.score VALUES (16, 817);
-INSERT INTO public.score VALUES (16, 225);
-INSERT INTO public.score VALUES (15, 627);
-INSERT INTO public.score VALUES (15, 61);
-INSERT INTO public.score VALUES (15, 450);
-INSERT INTO public.score VALUES (17, 330);
-INSERT INTO public.score VALUES (17, 972);
-INSERT INTO public.score VALUES (18, 22);
-INSERT INTO public.score VALUES (18, 423);
-INSERT INTO public.score VALUES (17, 598);
-INSERT INTO public.score VALUES (17, 843);
-INSERT INTO public.score VALUES (17, 882);
-INSERT INTO public.score VALUES (19, 15);
-INSERT INTO public.score VALUES (19, 10);
+INSERT INTO public.games VALUES (9, 892);
+INSERT INTO public.games VALUES (9, 582);
+INSERT INTO public.games VALUES (10, 88);
+INSERT INTO public.games VALUES (10, 518);
+INSERT INTO public.games VALUES (9, 576);
+INSERT INTO public.games VALUES (9, 495);
+INSERT INTO public.games VALUES (9, 701);
+INSERT INTO public.games VALUES (11, 311);
+INSERT INTO public.games VALUES (11, 869);
+INSERT INTO public.games VALUES (12, 922);
+INSERT INTO public.games VALUES (12, 381);
+INSERT INTO public.games VALUES (11, 408);
+INSERT INTO public.games VALUES (11, 378);
+INSERT INTO public.games VALUES (11, 29);
+INSERT INTO public.games VALUES (13, 260);
+INSERT INTO public.games VALUES (13, 752);
+INSERT INTO public.games VALUES (14, 296);
+INSERT INTO public.games VALUES (14, 970);
+INSERT INTO public.games VALUES (13, 767);
+INSERT INTO public.games VALUES (13, 817);
+INSERT INTO public.games VALUES (13, 699);
+INSERT INTO public.games VALUES (15, 883);
+INSERT INTO public.games VALUES (15, 467);
+INSERT INTO public.games VALUES (16, 817);
+INSERT INTO public.games VALUES (16, 225);
+INSERT INTO public.games VALUES (15, 627);
+INSERT INTO public.games VALUES (15, 61);
+INSERT INTO public.games VALUES (15, 450);
+INSERT INTO public.games VALUES (17, 330);
+INSERT INTO public.games VALUES (17, 972);
+INSERT INTO public.games VALUES (18, 22);
+INSERT INTO public.games VALUES (18, 423);
+INSERT INTO public.games VALUES (17, 598);
+INSERT INTO public.games VALUES (17, 843);
+INSERT INTO public.games VALUES (17, 882);
+INSERT INTO public.games VALUES (19, 15);
+INSERT INTO public.games VALUES (19, 10);
+INSERT INTO public.games VALUES (42, 133);
+INSERT INTO public.games VALUES (42, 15);
+INSERT INTO public.games VALUES (43, 634);
+INSERT INTO public.games VALUES (43, 438);
+INSERT INTO public.games VALUES (42, 507);
+INSERT INTO public.games VALUES (42, 989);
+INSERT INTO public.games VALUES (42, 592);
 
 
 --
@@ -164,13 +171,35 @@ INSERT INTO public.users VALUES (18, 'user_1780673991110');
 INSERT INTO public.users VALUES (19, 'bboy');
 INSERT INTO public.users VALUES (20, 'user_1780675148368');
 INSERT INTO public.users VALUES (21, 'user_1780675148367');
+INSERT INTO public.users VALUES (22, 'user_1780675687160');
+INSERT INTO public.users VALUES (23, 'user_1780675687159');
+INSERT INTO public.users VALUES (24, 'user_1780675783325');
+INSERT INTO public.users VALUES (25, 'user_1780675783324');
+INSERT INTO public.users VALUES (26, 'user_1780675930313');
+INSERT INTO public.users VALUES (27, 'user_1780675930312');
+INSERT INTO public.users VALUES (28, 'user_1780677935525');
+INSERT INTO public.users VALUES (29, 'user_1780677935524');
+INSERT INTO public.users VALUES (30, 'user_1780678183681');
+INSERT INTO public.users VALUES (31, 'user_1780678183680');
+INSERT INTO public.users VALUES (32, 'user_1780678248238');
+INSERT INTO public.users VALUES (33, 'user_1780678248237');
+INSERT INTO public.users VALUES (34, 'user_1780678283914');
+INSERT INTO public.users VALUES (35, 'user_1780678283913');
+INSERT INTO public.users VALUES (36, 'user_1780678353679');
+INSERT INTO public.users VALUES (37, 'user_1780678353678');
+INSERT INTO public.users VALUES (38, 'user_1780678369082');
+INSERT INTO public.users VALUES (39, 'user_1780678369081');
+INSERT INTO public.users VALUES (40, 'user_1780679218761');
+INSERT INTO public.users VALUES (41, 'user_1780679218760');
+INSERT INTO public.users VALUES (42, 'user_1780679353679');
+INSERT INTO public.users VALUES (43, 'user_1780679353678');
 
 
 --
 -- Name: users_user_id_seq; Type: SEQUENCE SET; Schema: public; Owner: freecodecamp
 --
 
-SELECT pg_catalog.setval('public.users_user_id_seq', 21, true);
+SELECT pg_catalog.setval('public.users_user_id_seq', 43, true);
 
 
 --
@@ -182,10 +211,10 @@ ALTER TABLE ONLY public.users
 
 
 --
--- Name: score score_user_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: freecodecamp
+-- Name: games score_user_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: freecodecamp
 --
 
-ALTER TABLE ONLY public.score
+ALTER TABLE ONLY public.games
     ADD CONSTRAINT score_user_id_fkey FOREIGN KEY (user_id) REFERENCES public.users(user_id);
 
 

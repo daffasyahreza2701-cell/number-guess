@@ -13,8 +13,16 @@ if [[ -z $USERNAME_EXIST ]]
   INSERT_UNAME=$($PSQL "INSERT INTO users(username) VALUES('$USERNAME')")
   else
   #if username is found
-  VIEW_USER=$($PSQL "SELECT username, COUNT(guess), MIN(guess) FROM users LEFT JOIN score USING(user_id) WHERE username = '$USERNAME' GROUP BY username")
-  IFS='|' read USER GAMES_PLAYED BEST_GAME <<< "$VIEW_USER"
+  STATS=$($PSQL "
+  SELECT username,
+  COUNT(games.user_id),
+  MIN(games.guess)
+  FROM users
+  INNER JOIN games USING(user_id)
+  WHERE username = '$USERNAME'
+  GROUP BY username
+")
+  IFS='|' read USER GAMES_PLAYED BEST_GAME <<< "$STATS"
   echo "Welcome back, $USER! You have played $GAMES_PLAYED games, and your best game took $BEST_GAME guesses."
 fi
 
@@ -51,7 +59,7 @@ done
 #save game username
 USER_ID=$($PSQL "SELECT user_id FROM users WHERE username='$USERNAME'")
 #save game result
-SAVE_GAME=($PSQL "INSERT INTO score(user_id, guess) VALUES($USER_ID, $NUMBER_OF_GUESSES)")
+SAVE_GAME=$($PSQL "INSERT INTO games(user_id, guess) VALUES($USER_ID, $NUMBER_OF_GUESSES)")
 
 #final message
 echo "You guessed it in $NUMBER_OF_GUESSES tries. The secret number was $SECRET_NUMBER. Nice job!"
