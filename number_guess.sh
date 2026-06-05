@@ -1,3 +1,8 @@
 #!/bin/bash
 PSQL="psql --username=freecodecamp --dbname=number_guess -t --no-align -c"
 #script for a number guessing game using bash 
+
+#enter username
+echo "Enter your username:"
+read USERNAME
+USERNAME_EXIST=$($PSQL "SELECT username from users WHERE username = '$USERNAME'")

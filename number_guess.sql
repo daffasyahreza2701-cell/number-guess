@@ -124,6 +124,14 @@ ALTER TABLE ONLY public.users
 
 
 --
+-- Name: score score_user_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: freecodecamp
+--
+
+ALTER TABLE ONLY public.score
+    ADD CONSTRAINT score_user_id_fkey FOREIGN KEY (user_id) REFERENCES public.users(user_id);
+
+
+--
 -- PostgreSQL database dump complete
 --
 
