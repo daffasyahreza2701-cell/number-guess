@@ -13,9 +13,9 @@ if [[ -z $USERNAME_EXIST ]]
   INSERT_UNAME=$($PSQL "INSERT INTO users(username) VALUES('$USERNAME')")
   else
   #if username is found
-  VIEW_USER=$($PSQL "SELECT username, COUNT(*), MIN(guess) FROM users LEFT JOIN score USING(user_id) WHERE username = '$USERNAME' GROUP BY username")
-  IFS='|' read USER PLAY GUESS <<< "$VIEW_USER"
-  echo "Welcome back, $USER! You have played $PLAY games, and your best game took $GUESS guesses."
+  VIEW_USER=$($PSQL "SELECT username, COUNT(guess), MIN(guess) FROM users LEFT JOIN score USING(user_id) WHERE username = '$USERNAME' GROUP BY username")
+  IFS='|' read USER GAMES_PLAYED BEST_GAME <<< "$VIEW_USER"
+  echo "Welcome back, $USER! You have played $GAMES_PLAYED games, and your best game took $BEST_GAME guesses."
 fi
 
 #number guessing game
