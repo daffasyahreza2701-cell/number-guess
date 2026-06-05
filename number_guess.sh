@@ -16,3 +16,4 @@ if [[ -z $USERNAME_EXIST ]]
   VIEW_USER=$($PSQL "SELECT username, COUNT(*), MIN(guess) FROM users LEFT JOIN score USING(user_id) WHERE username = '$USERNAME' GROUP BY username")
   IFS='|' read USER PLAY GUESS <<< "$VIEW_USER"
   echo "Welcome back, $USER! You have played $PLAY games, and your best game took $GUESS guesses."
+fi
